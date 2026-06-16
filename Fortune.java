@@ -2,16 +2,16 @@ package fortuneApp;
 
 public abstract class Fortune {
 
-  private String FortuneName;
+  private String fortuneName;
   private String message;
 
-  public Fortune(String FortuneName, String message) {
-    this.FortuneName = FortuneName;
+  public Fortune(String fortuneName, String message) {
+    this.fortuneName = fortuneName;
     this.message = message;
   }
 
   public String getName() {
-    return FortuneName;
+    return fortuneName;
   }
 
   public String getMessage() {
