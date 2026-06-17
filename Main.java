@@ -1,5 +1,6 @@
 package fortuneApp;
 
+// おみくじをランダムに選ぶためにRandomクラスをimport
 import java.util.Random;
 
 public class Main {

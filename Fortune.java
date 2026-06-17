@@ -5,7 +5,6 @@ public abstract class Fortune {
 
   // 運勢名（大吉、中吉、吉、小吉、凶）
   private String fortuneName;
-
   // 運勢ごとのメッセージ
   private String message;
 
