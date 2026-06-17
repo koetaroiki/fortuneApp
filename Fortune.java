@@ -1,12 +1,14 @@
 package fortuneApp;
 
-// おみくじの共通情報を管理する抽象クラス
+// おみくじの共通情報を管理する抽象クラス 親クラス（スーパークラス）
 public abstract class Fortune {
 
   // 運勢名（大吉、中吉、吉、小吉、凶）
   private String fortuneName;
   // 運勢ごとのメッセージ
   private String message;
+  // おみくじ画像のファイルパス
+  // private String imagePath;
 
   // 運勢名とメッセージを受け取って初期化するコンストラクタ
   public Fortune(String fortuneName, String message) {
