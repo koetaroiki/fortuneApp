@@ -8,12 +8,13 @@ public abstract class Fortune {
   // 運勢ごとのメッセージ
   private String message;
   // おみくじ画像のファイルパス
-  // private String imagePath;
+  private String imagePath;
 
   // 運勢名とメッセージを受け取って初期化するコンストラクタ
-  public Fortune(String fortuneName, String message) {
+  public Fortune(String fortuneName, String message, String imagePath) {
     this.fortuneName = fortuneName;
     this.message = message;
+    this.imagePath = imagePath;
   }
 
   // 運勢名を取得する
@@ -24,5 +25,10 @@ public abstract class Fortune {
   // メッセージを取得する
   public String getMessage() {
     return message;
+  }
+
+  // 画像を取得
+  public String getImagePath() {
+    return imagePath;
   }
 }
