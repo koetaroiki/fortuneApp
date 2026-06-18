@@ -23,9 +23,9 @@ public class Main {
       // ランダムに選ばれたおみくじを取り出す
       Fortune fortune = fortunes[index];
 
-      // 選ばれたおみくじの運勢名とメッセージを表示する
+      // 選ばれたおみくじの運勢名とメッセージと画像のパスを表示
       System.out.println("運勢: " + fortune.getName());
       System.out.println("メッセージ: " + fortune.getMessage());
-
+      System.out.println(fortune.getImagePath());
   }
 }
