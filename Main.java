@@ -28,8 +28,8 @@ public class Main {
       System.out.println("メッセージ: " + fortune.getMessage());
       System.out.println(fortune.getImagePath());
 
-      // FortuneAppオブジェクトを生成し、app変数に代入する
-      FortuneApp app = new FortuneApp();
+      // 選ばれた運勢を渡してFortuneAppオブジェクトを生成する
+      FortuneApp app = new FortuneApp(fortune);
       // FortuneAppのウィンドウを表示する
       app.setVisible(true);
   }
