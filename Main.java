@@ -28,9 +28,19 @@ public class Main {
       System.out.println("メッセージ: " + fortune.getMessage());
       System.out.println(fortune.getImagePath());
 
-      // 選ばれた運勢を渡してFortuneAppオブジェクトを生成する
+      // 選ばれた運勢情報を引数として渡し、FortuneAppオブジェクトを生成してapp変数に代入する
       FortuneApp app = new FortuneApp(fortune);
       // FortuneAppのウィンドウを表示する
       app.setVisible(true);
   }
 }
+
+/*
+Main.javaが実行される
+↓
+おみくじがランダムで選ばれ、Fortune型のfortune変数に代入される
+↓
+選ばれた運勢情報をFortuneAppに渡すため、fortuneを引数としてコンストラクタに渡す
+↓
+FortuneAppオブジェクトが生成され、app変数に代入される
+*/
