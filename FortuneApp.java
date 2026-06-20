@@ -4,6 +4,8 @@ package fortuneApp;
 import java.awt.GridLayout;
 // 画像サイズを変更するためにImageクラスをimport
 import java.awt.Image;
+// 色を設定するためにColorクラスをimport
+import java.awt.Color;
 
 // ウィンドウを作るためのJFrameクラスをimport
 import javax.swing.JFrame;
@@ -23,6 +25,10 @@ public class FortuneApp extends JFrame {
     setTitle("Fortune App");
     // ウィンドウのサイズを設定
     setSize(600, 600);
+    // ウィンドウの背景色を設定
+    getContentPane().setBackground(
+      new Color(136, 214, 166)
+    );
     // ウィンドウを閉じたときにプログラムを終了
     setDefaultCloseOperation(EXIT_ON_CLOSE);
 
