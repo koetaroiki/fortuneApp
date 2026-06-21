@@ -23,11 +23,6 @@ public class Main {
       // ランダムに選ばれたおみくじを取り出す
       Fortune fortune = fortunes[index];
 
-      // 選ばれたおみくじの運勢名とメッセージと画像のパスをコンソールに表示
-      System.out.println("運勢: " + fortune.getName());
-      System.out.println("メッセージ: " + fortune.getMessage());
-      System.out.println(fortune.getImagePath());
-
       // 選ばれた運勢情報を引数として渡し、FortuneAppオブジェクトを生成してapp変数に代入する
       FortuneApp app = new FortuneApp(fortune);
       // FortuneAppのウィンドウを表示する

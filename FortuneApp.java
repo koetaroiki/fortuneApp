@@ -13,6 +13,7 @@ import java.awt.Font;
 import javax.swing.JFrame;
 // 文字や画像を表示するためにJLabelクラスをimport
 import javax.swing.JLabel;
+import javax.swing.BorderFactory;
 // 画像を表示するためにImageIconクラスをimport
 import javax.swing.ImageIcon;
 
