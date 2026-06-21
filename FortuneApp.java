@@ -6,6 +6,8 @@ import java.awt.GridLayout;
 import java.awt.Image;
 // 色を設定するためにColorクラスをimport
 import java.awt.Color;
+// 文字の種類やサイズを設定するためにFontクラスをimport
+import java.awt.Font;
 
 // ウィンドウを作るためのJFrameクラスをimport
 import javax.swing.JFrame;
@@ -27,7 +29,7 @@ public class FortuneApp extends JFrame {
     setSize(600, 600);
     // ウィンドウの背景色を設定
     getContentPane().setBackground(
-      new Color(136, 214, 166)
+      new Color(176, 166, 237)
     );
     // ウィンドウを閉じたときにプログラムを終了
     setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -37,10 +39,13 @@ public class FortuneApp extends JFrame {
   
     // 選ばれた運勢名とメッセージをを表示するラベルを作成
     JLabel fortuneLabel = new JLabel(
-        "運勢: " + fortune.getName()
-        + "メッセージ: "
+        fortune.getName()
+        + " : "
         + fortune.getMessage()
     );
+    // ラベルの文字サイズを24pxに設定
+    fortuneLabel.setFont(new Font("MS Gothic", Font.BOLD, 24));
+  
     // 運勢とメッセージを中央に表示させる
     fortuneLabel.setHorizontalAlignment(JLabel.CENTER);
 
