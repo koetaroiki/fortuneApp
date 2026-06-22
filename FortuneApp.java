@@ -19,6 +19,12 @@ import javax.swing.ImageIcon;
 // ボタンを表示するためにJButtonクラスをimport
 import javax.swing.JButton;
 
+// ボタンのクリックイベントを扱うためにActionEventクラスをimport
+import java.awt.event.ActionEvent;
+
+// ボタンのクリックイベントを扱うためにActionListenerインターフェースをimport
+import java.awt.event.ActionListener;
+
 
 // おみくじアプリの画面を管理する子クラス（サブクラス）
 public class FortuneApp extends JFrame {
@@ -74,5 +80,12 @@ public class FortuneApp extends JFrame {
     add(imageLabel);
     add(fortuneLabel );
     add(drawButton);
+
+    drawButton.addActionListener(new ActionListener() {
+      @Override
+      public void actionPerformed(ActionEvent e) {
+        System.out.println("ボタンが押されました");
+      }
+    });
   }
 }
