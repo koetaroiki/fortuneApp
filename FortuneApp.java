@@ -1,14 +1,17 @@
 package fortuneApp;
 
-// 部品の位置を配置するためにGridLayoutクラスをimport
-import java.awt.GridLayout;
-// 画像サイズを変更するためにImageクラスをimport
-import java.awt.Image;
 // 色を設定するためにColorクラスをimport
 import java.awt.Color;
 // 文字の種類やサイズを設定するためにFontクラスをimport
 import java.awt.Font;
-
+// 部品の位置を配置するためにGridLayoutクラスをimport
+import java.awt.GridLayout;
+// 画像サイズを変更するためにImageクラスをimport
+import java.awt.Image;
+// ボタンのクリックイベントを扱うためにActionEventクラスをimport
+import java.awt.event.ActionEvent;
+// ボタンのクリックイベントを扱うためにActionListenerインターフェースをimport
+import java.awt.event.ActionListener;
 
 // ウィンドウを作るためのJFrameクラスをimport
 import javax.swing.JFrame;
@@ -19,15 +22,23 @@ import javax.swing.ImageIcon;
 // ボタンを表示するためにJButtonクラスをimport
 import javax.swing.JButton;
 
-// ボタンのクリックイベントを扱うためにActionEventクラスをimport
-import java.awt.event.ActionEvent;
-
-// ボタンのクリックイベントを扱うためにActionListenerインターフェースをimport
-import java.awt.event.ActionListener;
-
+import java.util.Random;
 
 // おみくじアプリの画面を管理する子クラス（サブクラス）
 public class FortuneApp extends JFrame {
+  // ボタンが押されたときに運勢を書き換えるためのラベル
+  private JLabel fortuneLabel;
+  // ボタンが押されたときに画像を書き換えるためのラベル
+  private JLabel imageLabel;
+
+  // おみくじ一覧
+  private Fortune[] fortunes = {
+    new Daikichi(),
+    new Chukichi(),
+    new Kichi(),
+    new Shokichi(),
+    new Kyo()
+  };
 
   // Mainから受け取った運勢情報を画面に表示するためのコンストラクタ
   public FortuneApp(Fortune fortune) {
@@ -42,18 +53,17 @@ public class FortuneApp extends JFrame {
     // ウィンドウを閉じたときにプログラムを終了
     setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-    // 部品を2行1列で配置する
+    // 部品を3行1列で配置する
     setLayout(new GridLayout(3, 1));
   
     // 選ばれた運勢名とメッセージをを表示するラベルを作成
-    JLabel fortuneLabel = new JLabel(
+    fortuneLabel = new JLabel(
         fortune.getName()
         + " : "
         + fortune.getMessage()
     );
     // ラベルの文字サイズを24pxに設定
     fortuneLabel.setFont(new Font("MS Gothic", Font.BOLD, 24));
-  
     // 運勢とメッセージを中央に表示させる
     fortuneLabel.setHorizontalAlignment(JLabel.CENTER);
 
@@ -68,7 +78,8 @@ public class FortuneApp extends JFrame {
     ImageIcon resizeIcon = new ImageIcon(resizeImage);
 
     // 画像を表示するラベルを作成
-    JLabel imageLabel = new JLabel(resizeIcon);
+    imageLabel = new JLabel(resizeIcon);
+
     // 画像を中央に表示する
     imageLabel.setHorizontalAlignment(JLabel.CENTER);
 
@@ -76,7 +87,7 @@ public class FortuneApp extends JFrame {
     JButton drawButton = new JButton("もう一回引く");
 
 
-    // ラベルをウィンドウに追加
+    // 画面部品をウィンドウに追加
     add(imageLabel);
     add(fortuneLabel );
     add(drawButton);
@@ -84,7 +95,39 @@ public class FortuneApp extends JFrame {
     drawButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-        System.out.println("ボタンが押されました");
+
+        // ランダムなおみくじを選ぶためのRandomオブジェクトを生成
+        Random random = new Random();
+
+        // fortunes配列の添字をランダムに取得
+        int index = random.nextInt(fortunes.length);
+
+        // ランダムに選ばれたおみくじを取得
+        Fortune fortune = fortunes[index];
+
+          // 選ばれた運勢名とメッセージをラベルに表示
+          // 選ばれたおみくじ画像を読み込む
+          ImageIcon icon = new ImageIcon(fortune.getImagePath());
+
+          // ImageIconからImageを取得する
+          Image image = icon.getImage();
+
+          // 300px x 300px にリサイズ
+          Image resizeImage =
+              image.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
+
+          // リサイズ後のImageからImageIconを生成する
+          ImageIcon resizeIcon = new ImageIcon(resizeImage);
+
+          // 画像を更新する
+          imageLabel.setIcon(resizeIcon);
+
+          // 選ばれた運勢名とメッセージをラベルに表示
+          fortuneLabel.setText(
+              fortune.getName()
+              + " : "
+              + fortune.getMessage()
+          );
       }
     });
   }
