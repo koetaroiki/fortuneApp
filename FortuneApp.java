@@ -9,14 +9,15 @@ import java.awt.Color;
 // 文字の種類やサイズを設定するためにFontクラスをimport
 import java.awt.Font;
 
+
 // ウィンドウを作るためのJFrameクラスをimport
 import javax.swing.JFrame;
 // 文字や画像を表示するためにJLabelクラスをimport
 import javax.swing.JLabel;
-import javax.swing.BorderFactory;
 // 画像を表示するためにImageIconクラスをimport
 import javax.swing.ImageIcon;
-
+// ボタンを表示するためにJButtonクラスをimport
+import javax.swing.JButton;
 
 
 // おみくじアプリの画面を管理する子クラス（サブクラス）
@@ -36,7 +37,7 @@ public class FortuneApp extends JFrame {
     setDefaultCloseOperation(EXIT_ON_CLOSE);
 
     // 部品を2行1列で配置する
-    setLayout(new GridLayout(2, 1));
+    setLayout(new GridLayout(3, 1));
   
     // 選ばれた運勢名とメッセージをを表示するラベルを作成
     JLabel fortuneLabel = new JLabel(
@@ -65,9 +66,13 @@ public class FortuneApp extends JFrame {
     // 画像を中央に表示する
     imageLabel.setHorizontalAlignment(JLabel.CENTER);
 
+    // おみくじを引き直すボタンを作成
+    JButton drawButton = new JButton("もう一回引く");
+
 
     // ラベルをウィンドウに追加
     add(imageLabel);
     add(fortuneLabel );
+    add(drawButton);
   }
 }
