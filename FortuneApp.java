@@ -4,14 +4,16 @@ package fortuneApp;
 import java.awt.Color;
 // 文字の種類やサイズを設定するためにFontクラスをimport
 import java.awt.Font;
-// 部品の位置を配置するためにGridLayoutクラスをimport
-import java.awt.GridLayout;
+      // 部品の位置を配置するためにGridLayoutクラスをimport
+      // import java.awt.GridLayout;
 // 画像サイズを変更するためにImageクラスをimport
 import java.awt.Image;
 // ボタンのクリックイベントを扱うためにActionEventクラスをimport
 import java.awt.event.ActionEvent;
 // ボタンのクリックイベントを扱うためにActionListenerインターフェースをimport
 import java.awt.event.ActionListener;
+// 部品を上下左右中央に配置するためにBorderLayoutクラスをimport
+import java.awt.BorderLayout;
 
 // ウィンドウを作るためのJFrameクラスをimport
 import javax.swing.JFrame;
@@ -21,6 +23,8 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 // ボタンを表示するためにJButtonクラスをimport
 import javax.swing.JButton;
+// 部品をグループ化するためにJPanelクラスをimport
+import javax.swing.JPanel;
 
 import java.util.Random;
 
@@ -47,14 +51,40 @@ public class FortuneApp extends JFrame {
     // ウィンドウのサイズを設定
     setSize(600, 600);
     // ウィンドウの背景色を設定
-    getContentPane().setBackground(
-      new Color(176, 166, 237)
-    );
+    // getContentPane().setBackground(
+    //   new Color(176, 166, 237)
+    // );
+
+
+
     // ウィンドウを閉じたときにプログラムを終了
     setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-    // 部品を3行1列で配置する
-    setLayout(new GridLayout(3, 1));
+// 部品を3行1列で配置する
+// setLayout(new GridLayout(3, 1));
+// 部品を上下左右中央に配置する
+setLayout(new BorderLayout());
+
+// 画像表示用のパネルを作成
+JPanel imagePanel = new JPanel();
+// 運勢表示用のパネルを作成
+JPanel fortunePanel = new JPanel();
+// ボタン表示用のパネルを作成
+JPanel buttonPanel = new JPanel();
+
+// パネルの背景色を設定
+imagePanel.setBackground(
+    new Color(176, 166, 237)
+);
+fortunePanel.setBackground(
+    new Color(176, 166, 237)
+);
+buttonPanel.setBackground(
+    new Color(176, 166, 237)
+);
+
+
+
   
     // 選ばれた運勢名とメッセージをを表示するラベルを作成
     fortuneLabel = new JLabel(
@@ -87,10 +117,24 @@ public class FortuneApp extends JFrame {
     JButton drawButton = new JButton("もう一回引く");
 
 
-    // 画面部品をウィンドウに追加
-    add(imageLabel);
-    add(fortuneLabel );
-    add(drawButton);
+// 画像を画像用パネルに追加
+imagePanel.add(imageLabel);
+// 運勢を運勢用パネルに追加
+fortunePanel.add(fortuneLabel);
+// ボタンをボタン用パネルに追加
+buttonPanel.add(drawButton);
+
+// パネルをウィンドウに追加
+// add(imagePanel);
+// add(fortunePanel);
+// add(buttonPanel);
+
+// 画像パネルを上に配置
+add(imagePanel, BorderLayout.NORTH);
+// 運勢パネルを中央に配置
+add(fortunePanel, BorderLayout.CENTER);
+// ボタンパネルを下に配置
+add(buttonPanel, BorderLayout.SOUTH);
 
     drawButton.addActionListener(new ActionListener() {
       @Override
