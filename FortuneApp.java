@@ -25,6 +25,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 // 部品をグループ化するためにJPanelクラスをimport
 import javax.swing.JPanel;
+import javax.swing.BorderFactory;
+// 部品を縦方向に並べるためにBoxLayoutクラスをimport
+import javax.swing.BoxLayout;
 
 import java.util.Random;
 
@@ -63,7 +66,12 @@ public class FortuneApp extends JFrame {
 // 部品を3行1列で配置する
 // setLayout(new GridLayout(3, 1));
 // 部品を上下左右中央に配置する
-setLayout(new BorderLayout());
+// setLayout(new BorderLayout());
+// 部品を縦方向に配置する
+setLayout(new BoxLayout(
+    getContentPane(),
+    BoxLayout.Y_AXIS
+));
 
 // 画像表示用のパネルを作成
 JPanel imagePanel = new JPanel();
@@ -71,6 +79,28 @@ JPanel imagePanel = new JPanel();
 JPanel fortunePanel = new JPanel();
 // ボタン表示用のパネルを作成
 JPanel buttonPanel = new JPanel();
+
+// imageの余白を設定
+imagePanel.setBorder(
+    BorderFactory.createEmptyBorder(
+        50, 0, 0, 0
+    )
+);
+
+// fortuneの余白を設定
+// fortunePanel.setBorder(
+//     BorderFactory.createEmptyBorder(
+//         20, 0, 0, 0
+//     )
+// );
+
+// buttonの余白を設定
+// buttonPanel.setBorder(
+//     BorderFactory.createEmptyBorder(
+//         20, 0, 0, 0
+//     )
+// );
+
 
 // パネルの背景色を設定
 imagePanel.setBackground(
