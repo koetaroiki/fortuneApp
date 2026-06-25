@@ -4,8 +4,6 @@ package fortuneApp;
 import java.awt.Color;
 // 文字の種類やサイズを設定するためにFontクラスをimport
 import java.awt.Font;
-      // 部品の位置を配置するためにGridLayoutクラスをimport
-      // import java.awt.GridLayout;
 // 画像サイズを変更するためにImageクラスをimport
 import java.awt.Image;
 // ボタンのクリックイベントを扱うためにActionEventクラスをimport
@@ -28,7 +26,7 @@ import javax.swing.JPanel;
 import javax.swing.BorderFactory;
 // 部品を縦方向に並べるためにBoxLayoutクラスをimport
 import javax.swing.BoxLayout;
-
+// 乱数を生成するクラスをimport
 import java.util.Random;
 
 // おみくじアプリの画面を管理する子クラス（サブクラス）
@@ -53,69 +51,40 @@ public class FortuneApp extends JFrame {
     setTitle("Fortune App");
     // ウィンドウのサイズを設定
     setSize(600, 600);
-    // ウィンドウの背景色を設定
-    // getContentPane().setBackground(
-    //   new Color(176, 166, 237)
-    // );
-
-
-
     // ウィンドウを閉じたときにプログラムを終了
     setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-// 部品を3行1列で配置する
-// setLayout(new GridLayout(3, 1));
-// 部品を上下左右中央に配置する
-// setLayout(new BorderLayout());
-// 部品を縦方向に配置する
-setLayout(new BoxLayout(
-    getContentPane(),
-    BoxLayout.Y_AXIS
-));
+    // コンポーネントを縦方向に配置する
+    setLayout(new BoxLayout(
+        getContentPane(),
+        BoxLayout.Y_AXIS
+    ));
 
-// 画像表示用のパネルを作成
-JPanel imagePanel = new JPanel();
-// 運勢表示用のパネルを作成
-JPanel fortunePanel = new JPanel();
-// ボタン表示用のパネルを作成
-JPanel buttonPanel = new JPanel();
+    // 画像表示用のパネルを作成
+    JPanel imagePanel = new JPanel();
+    // 運勢表示用のパネルを作成
+    JPanel fortunePanel = new JPanel();
+    // ボタン表示用のパネルを作成
+    JPanel buttonPanel = new JPanel();
 
-// imageの余白を設定
-imagePanel.setBorder(
-    BorderFactory.createEmptyBorder(
-        50, 0, 0, 0
-    )
-);
+    // imageの余白を設定
+    imagePanel.setBorder(
+        BorderFactory.createEmptyBorder(
+            50, 0, 0, 0
+        )
+    );
 
-// fortuneの余白を設定
-// fortunePanel.setBorder(
-//     BorderFactory.createEmptyBorder(
-//         20, 0, 0, 0
-//     )
-// );
+    // パネルの背景色を設定
+    imagePanel.setBackground(
+        new Color(176, 166, 237)
+    );
+    fortunePanel.setBackground(
+        new Color(176, 166, 237)
+    );
+    buttonPanel.setBackground(
+        new Color(176, 166, 237)
+    );
 
-// buttonの余白を設定
-// buttonPanel.setBorder(
-//     BorderFactory.createEmptyBorder(
-//         20, 0, 0, 0
-//     )
-// );
-
-
-// パネルの背景色を設定
-imagePanel.setBackground(
-    new Color(176, 166, 237)
-);
-fortunePanel.setBackground(
-    new Color(176, 166, 237)
-);
-buttonPanel.setBackground(
-    new Color(176, 166, 237)
-);
-
-
-
-  
     // 選ばれた運勢名とメッセージをを表示するラベルを作成
     fortuneLabel = new JLabel(
         fortune.getName()
@@ -146,25 +115,19 @@ buttonPanel.setBackground(
     // おみくじを引き直すボタンを作成
     JButton drawButton = new JButton("もう一回引く");
 
+    // 画像を画像用パネルに追加
+    imagePanel.add(imageLabel);
+    // 運勢を運勢用パネルに追加
+    fortunePanel.add(fortuneLabel);
+    // ボタンをボタン用パネルに追加
+    buttonPanel.add(drawButton);
 
-// 画像を画像用パネルに追加
-imagePanel.add(imageLabel);
-// 運勢を運勢用パネルに追加
-fortunePanel.add(fortuneLabel);
-// ボタンをボタン用パネルに追加
-buttonPanel.add(drawButton);
-
-// パネルをウィンドウに追加
-// add(imagePanel);
-// add(fortunePanel);
-// add(buttonPanel);
-
-// 画像パネルを上に配置
-add(imagePanel, BorderLayout.NORTH);
-// 運勢パネルを中央に配置
-add(fortunePanel, BorderLayout.CENTER);
-// ボタンパネルを下に配置
-add(buttonPanel, BorderLayout.SOUTH);
+    // 画像パネルを上に配置
+    add(imagePanel, BorderLayout.NORTH);
+    // 運勢パネルを中央に配置
+    add(fortunePanel, BorderLayout.CENTER);
+    // ボタンパネルを下に配置
+    add(buttonPanel, BorderLayout.SOUTH);
 
     drawButton.addActionListener(new ActionListener() {
       @Override
