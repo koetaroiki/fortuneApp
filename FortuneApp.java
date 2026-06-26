@@ -36,17 +36,14 @@ public class FortuneApp extends JFrame {
   // ボタンが押されたときに画像を書き換えるためのラベル
   private JLabel imageLabel;
 
-  // おみくじ一覧
-  private Fortune[] fortunes = {
-    new Daikichi(),
-    new Chukichi(),
-    new Kichi(),
-    new Shokichi(),
-    new Kyo()
-  };
 
-  // Mainから受け取った運勢情報を画面に表示するためのコンストラクタ
-  public FortuneApp(Fortune fortune) {
+private Fortune[] fortunes;
+
+// Mainから受け取った運勢情報を画面に表示するためのコンストラクタ
+public FortuneApp(Fortune fortune, Fortune[] fortuneList){
+
+    this.fortunes = fortuneList;
+
     // ウィンドウのタイトルを設定
     setTitle("Fortune App");
     // ウィンドウのサイズを設定
