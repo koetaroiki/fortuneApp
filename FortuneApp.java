@@ -36,11 +36,10 @@ public class FortuneApp extends JFrame {
   // ボタンが押されたときに画像を書き換えるためのラベル
   private JLabel imageLabel;
 
+  private Fortune[] fortunes;
 
-private Fortune[] fortunes;
-
-// Mainから受け取った運勢情報を画面に表示するためのコンストラクタ
-public FortuneApp(Fortune fortune, Fortune[] fortuneList){
+  // Mainから受け取った運勢情報を画面に表示するためのコンストラクタ
+  public FortuneApp(Fortune fortune, Fortune[] fortuneList) {
 
     this.fortunes = fortuneList;
 
@@ -54,8 +53,7 @@ public FortuneApp(Fortune fortune, Fortune[] fortuneList){
     // コンポーネントを縦方向に配置する
     setLayout(new BoxLayout(
         getContentPane(),
-        BoxLayout.Y_AXIS
-    ));
+        BoxLayout.Y_AXIS));
 
     // 画像表示用のパネルを作成
     JPanel imagePanel = new JPanel();
@@ -67,27 +65,21 @@ public FortuneApp(Fortune fortune, Fortune[] fortuneList){
     // imageの余白を設定
     imagePanel.setBorder(
         BorderFactory.createEmptyBorder(
-            50, 0, 0, 0
-        )
-    );
+            50, 0, 0, 0));
 
     // パネルの背景色を設定
     imagePanel.setBackground(
-        new Color(176, 166, 237)
-    );
+        new Color(176, 166, 237));
     fortunePanel.setBackground(
-        new Color(176, 166, 237)
-    );
+        new Color(176, 166, 237));
     buttonPanel.setBackground(
-        new Color(176, 166, 237)
-    );
+        new Color(176, 166, 237));
 
     // 選ばれた運勢名とメッセージをを表示するラベルを作成
     fortuneLabel = new JLabel(
         fortune.getName()
-        + " : "
-        + fortune.getMessage()
-    );
+            + " : "
+            + fortune.getMessage());
     // ラベルの文字サイズを24pxに設定
     fortuneLabel.setFont(new Font("MS Gothic", Font.BOLD, 24));
     // 運勢とメッセージを中央に表示させる
@@ -99,7 +91,7 @@ public FortuneApp(Fortune fortune, Fortune[] fortuneList){
     // ImageIconからImageを取得する
     Image image = icon.getImage();
     // 300px x 300px にリサイズ
-    Image resizeImage =image.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
+    Image resizeImage = image.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
     // リサイズ後のImageからImageIconを生成する
     ImageIcon resizeIcon = new ImageIcon(resizeImage);
 
@@ -139,29 +131,27 @@ public FortuneApp(Fortune fortune, Fortune[] fortuneList){
         // ランダムに選ばれたおみくじを取得
         Fortune fortune = fortunes[index];
 
-          // 選ばれた運勢名とメッセージをラベルに表示
-          // 選ばれたおみくじ画像を読み込む
-          ImageIcon icon = new ImageIcon(fortune.getImagePath());
+        // 選ばれた運勢名とメッセージをラベルに表示
+        // 選ばれたおみくじ画像を読み込む
+        ImageIcon icon = new ImageIcon(fortune.getImagePath());
 
-          // ImageIconからImageを取得する
-          Image image = icon.getImage();
+        // ImageIconからImageを取得する
+        Image image = icon.getImage();
 
-          // 300px x 300px にリサイズ
-          Image resizeImage =
-              image.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
+        // 300px x 300px にリサイズ
+        Image resizeImage = image.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
 
-          // リサイズ後のImageからImageIconを生成する
-          ImageIcon resizeIcon = new ImageIcon(resizeImage);
+        // リサイズ後のImageからImageIconを生成する
+        ImageIcon resizeIcon = new ImageIcon(resizeImage);
 
-          // 画像を更新する
-          imageLabel.setIcon(resizeIcon);
+        // 画像を更新する
+        imageLabel.setIcon(resizeIcon);
 
-          // 選ばれた運勢名とメッセージをラベルに表示
-          fortuneLabel.setText(
-              fortune.getName()
-              + " : "
-              + fortune.getMessage()
-          );
+        // 選ばれた運勢名とメッセージをラベルに表示
+        fortuneLabel.setText(
+            fortune.getName()
+                + " : "
+                + fortune.getMessage());
       }
     });
   }
