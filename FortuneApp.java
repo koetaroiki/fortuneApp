@@ -35,12 +35,13 @@ public class FortuneApp extends JFrame {
   private JLabel fortuneLabel;
   // ボタンが押されたときに画像を書き換えるためのラベル
   private JLabel imageLabel;
-
+  // おみくじ一覧を保持する配列
   private Fortune[] fortunes;
 
   // Mainから受け取った運勢情報を画面に表示するためのコンストラクタ
   public FortuneApp(Fortune fortune, Fortune[] fortuneList) {
 
+    // 引数で受け取ったおみくじ一覧をメンバ変数に保存
     this.fortunes = fortuneList;
 
     // ウィンドウのタイトルを設定
