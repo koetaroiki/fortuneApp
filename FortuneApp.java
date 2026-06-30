@@ -23,6 +23,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 // 部品をグループ化するためにJPanelクラスをimport
 import javax.swing.JPanel;
+// パネルなどの枠線や余白を設定するためにBorderFactoryクラスをimport
 import javax.swing.BorderFactory;
 // 部品を縦方向に並べるためにBoxLayoutクラスをimport
 import javax.swing.BoxLayout;
@@ -88,20 +89,16 @@ public class FortuneApp extends JFrame {
 
     // 選ばれたおみくじ画像を読み込む
     ImageIcon icon = new ImageIcon(fortune.getImagePath());
-
     // ImageIconからImageを取得する
     Image image = icon.getImage();
     // 300px x 300px にリサイズ
     Image resizeImage = image.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
     // リサイズ後のImageからImageIconを生成する
     ImageIcon resizeIcon = new ImageIcon(resizeImage);
-
     // 画像を表示するラベルを作成
     imageLabel = new JLabel(resizeIcon);
-
     // 画像を中央に表示する
     imageLabel.setHorizontalAlignment(JLabel.CENTER);
-
     // おみくじを引き直すボタンを作成
     JButton drawButton = new JButton("もう一回引く");
 
@@ -122,32 +119,23 @@ public class FortuneApp extends JFrame {
     drawButton.addActionListener(new ActionListener() {
       @Override
       public void actionPerformed(ActionEvent e) {
-
         // ランダムなおみくじを選ぶためのRandomオブジェクトを生成
         Random random = new Random();
-
         // fortunes配列の添字をランダムに取得
         int index = random.nextInt(fortunes.length);
-
         // ランダムに選ばれたおみくじを取得
         Fortune fortune = fortunes[index];
-
         // 選ばれた運勢名とメッセージをラベルに表示
         // 選ばれたおみくじ画像を読み込む
         ImageIcon icon = new ImageIcon(fortune.getImagePath());
-
         // ImageIconからImageを取得する
         Image image = icon.getImage();
-
         // 300px x 300px にリサイズ
         Image resizeImage = image.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
-
         // リサイズ後のImageからImageIconを生成する
         ImageIcon resizeIcon = new ImageIcon(resizeImage);
-
         // 画像を更新する
         imageLabel.setIcon(resizeIcon);
-
         // 選ばれた運勢名とメッセージをラベルに表示
         fortuneLabel.setText(
             fortune.getName()

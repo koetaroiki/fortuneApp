@@ -4,17 +4,16 @@ package fortuneApp;
 import java.util.Random;
 
 public class Main {
-
   public static void main(String[] args) {
 
     // Fortune型の配列に各運勢オブジェクトを格納する
     Fortune[] fortunes = {
-      new Daikichi(),
-      new Chukichi(),
-      new Shokichi(),
-      new Kichi(),
-      new Suekichi(),
-      new Kyo()
+        new Daikichi(),
+        new Chukichi(),
+        new Shokichi(),
+        new Kichi(),
+        new Suekichi(),
+        new Kyo()
     };
 
     // Randomオブジェクトを生成し、random変数に代入する
