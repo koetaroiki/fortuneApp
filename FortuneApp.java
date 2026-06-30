@@ -68,7 +68,6 @@ public class FortuneApp extends JFrame {
     imagePanel.setBorder(
         BorderFactory.createEmptyBorder(
             50, 0, 0, 0));
-
     // パネルの背景色を設定
     imagePanel.setBackground(
         new Color(176, 166, 237));
