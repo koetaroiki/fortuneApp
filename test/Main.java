@@ -23,9 +23,13 @@ public class Main {
     // ランダムに選ばれたおみくじを取り出す
     Fortune fortune = fortunes[index];
 
+    System.out.println(fortune.getName());
+    System.out.println(fortune.getMessage());
+
     // 選ばれた運勢情報を引数として渡し、FortuneAppオブジェクトを生成してapp変数に代入する
-    FortuneApp app = new FortuneApp(fortune, fortunes);
+    // FortuneApp app = new FortuneApp(fortune, fortunes);
     // FortuneAppのウィンドウを表示する
-    app.setVisible(true);
+    // app.setVisible(true);
+
   }
 }
