@@ -26,6 +26,11 @@ public class Main {
     System.out.println(fortune.getName());
     System.out.println(fortune.getMessage());
 
+    // System.out.println("index = " + index);
+    // System.out.println("class = " + fortune.getClass().getSimpleName());
+    // System.out.println("name = " + fortune.getName());
+    // System.out.println("message = " + fortune.getMessage());
+
     // 選ばれた運勢情報を引数として渡し、FortuneAppオブジェクトを生成してapp変数に代入する
     // FortuneApp app = new FortuneApp(fortune, fortunes);
     // FortuneAppのウィンドウを表示する
