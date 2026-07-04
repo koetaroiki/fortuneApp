@@ -6,15 +6,18 @@ import java.util.Random;
 public class Main {
   public static void main(String[] args) {
 
-    // Fortune型の配列に各運勢オブジェクトを格納する
-    Fortune[] fortunes = {
-        new Daikichi(),
-        new Chukichi(),
-        new Shokichi(),
-        new Kichi(),
-        new Suekichi(),
-        new Kyo()
-    };
+    // createFortunes()を呼び出し、おみくじ一覧をFortune型の配列としてfortunes変数に代入する
+    Fortune[] fortunes = createFortunes();
+
+    // Fortune型の配列を作り、その配列をfortunesという変数に代入している
+    // Fortune[] fortunes = {
+    // new Daikichi(),
+    // new Chukichi(),
+    // new Shokichi(),
+    // new Kichi(),
+    // new Suekichi(),
+    // new Kyo()
+    // };
 
     // Randomオブジェクトを生成し、random変数に代入する
     Random random = new Random();
@@ -35,6 +38,17 @@ public class Main {
     // FortuneApp app = new FortuneApp(fortune, fortunes);
     // FortuneAppのウィンドウを表示する
     // app.setVisible(true);
+  }
 
+  // おみくじ一覧を作成する
+  private static Fortune[] createFortunes() {
+    return new Fortune[] {
+        new Daikichi(),
+        new Chukichi(),
+        new Shokichi(),
+        new Kichi(),
+        new Suekichi(),
+        new Kyo()
+    };
   }
 }
