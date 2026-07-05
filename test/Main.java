@@ -24,10 +24,10 @@ public class Main {
     // fortunes配列の添字(0～5)をランダムに取得する
     int index = random.nextInt(fortunes.length);
     // ランダムに選ばれたおみくじを取り出す
-    Fortune fortune = fortunes[index];
+    Fortune selectedFortune = fortunes[index];
 
-    System.out.println(fortune.getName());
-    System.out.println(fortune.getMessage());
+    System.out.println(selectedFortune.getName());
+    System.out.println(selectedFortune.getMessage());
 
     // System.out.println("index = " + index);
     // System.out.println("class = " + fortune.getClass().getSimpleName());
@@ -51,4 +51,9 @@ public class Main {
         new Kyo()
     };
   }
+
+  // Fortune型の配列を受け取って、その中から1つのFortuneを返すメソッド
+  // private static Fortune drawFortune(Fortune[] fortunes){
+
+  // }
 }
