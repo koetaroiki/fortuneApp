@@ -6,6 +6,9 @@ import java.util.Random;
 public class Main {
   public static void main(String[] args) {
 
+    StartApp app = new StartApp();
+    app.setVisible(true);
+
     // createFortunes()を呼び出し、おみくじ一覧をFortune型の配列としてfortuneList変数に代入する
     Fortune[] fortuneList = createFortunes();
 
@@ -14,11 +17,6 @@ public class Main {
 
     System.out.println(resultFortune.getName());
     System.out.println(resultFortune.getMessage());
-
-    // System.out.println("index = " + index);
-    // System.out.println("class = " + fortune.getClass().getSimpleName());
-    // System.out.println("name = " + fortune.getName());
-    // System.out.println("message = " + fortune.getMessage());
 
     // 選ばれた運勢情報を引数として渡し、FortuneAppオブジェクトを生成してapp変数に代入する
     // FortuneApp app = new FortuneApp(fortune, fortunes);
