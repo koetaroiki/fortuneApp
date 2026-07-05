@@ -6,28 +6,14 @@ import java.util.Random;
 public class Main {
   public static void main(String[] args) {
 
-    // createFortunes()を呼び出し、おみくじ一覧をFortune型の配列としてfortunes変数に代入する
-    Fortune[] fortunes = createFortunes();
+    // createFortunes()を呼び出し、おみくじ一覧をFortune型の配列としてfortuneList変数に代入する
+    Fortune[] fortuneList = createFortunes();
 
-    // Fortune型の配列を作り、その配列をfortunesという変数に代入している
-    // Fortune[] fortunes = {
-    // new Daikichi(),
-    // new Chukichi(),
-    // new Shokichi(),
-    // new Kichi(),
-    // new Suekichi(),
-    // new Kyo()
-    // };
+    // fortuneListを引数としてdrawFortune()を呼び出し、選ばれたおみくじを取得する
+    Fortune resultFortune = drawFortune(fortuneList);
 
-    // Randomオブジェクトを生成し、random変数に代入する
-    Random random = new Random();
-    // fortunes配列の添字(0～5)をランダムに取得する
-    int index = random.nextInt(fortunes.length);
-    // ランダムに選ばれたおみくじを取り出す
-    Fortune selectedFortune = fortunes[index];
-
-    System.out.println(selectedFortune.getName());
-    System.out.println(selectedFortune.getMessage());
+    System.out.println(resultFortune.getName());
+    System.out.println(resultFortune.getMessage());
 
     // System.out.println("index = " + index);
     // System.out.println("class = " + fortune.getClass().getSimpleName());
@@ -52,8 +38,15 @@ public class Main {
     };
   }
 
-  // Fortune型の配列を受け取って、その中から1つのFortuneを返すメソッド
-  // private static Fortune drawFortune(Fortune[] fortunes){
-
-  // }
+  // Fortune型の配列を受け取り、その中からランダムに1つ選んでFortune型として返すメソッド
+  private static Fortune drawFortune(Fortune[] fortuneList) {
+    // Randomオブジェクトを生成し、random変数に代入する
+    Random random = new Random();
+    // fortuneList配列の添字(0～5)をランダムに取得する
+    int index = random.nextInt(fortuneList.length);
+    // ランダムに選ばれたおみくじを取得する
+    Fortune selectedFortune = fortuneList[index];
+    // 選ばれたおみくじを呼び出し元へ返す
+    return selectedFortune;
+  }
 }
