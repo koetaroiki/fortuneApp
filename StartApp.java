@@ -27,5 +27,7 @@ public class StartApp extends JFrame {
         getContentPane(),
         BoxLayout.Y_AXIS));
     drawButton.setAlignmentX(CENTER_ALIGNMENT);
+
+    // test
   }
 }

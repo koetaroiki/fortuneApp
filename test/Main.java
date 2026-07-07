@@ -6,7 +6,9 @@ import java.util.Random;
 public class Main {
   public static void main(String[] args) {
 
+    // StartAppクラスをインスタンス化する
     StartApp app = new StartApp();
+    // StartAppのウィンドウを表示する
     app.setVisible(true);
 
     // createFortunes()を呼び出し、おみくじ一覧をFortune型の配列としてfortuneList変数に代入する
@@ -17,11 +19,6 @@ public class Main {
 
     System.out.println(resultFortune.getName());
     System.out.println(resultFortune.getMessage());
-
-    // 選ばれた運勢情報を引数として渡し、FortuneAppオブジェクトを生成してapp変数に代入する
-    // FortuneApp app = new FortuneApp(fortune, fortunes);
-    // FortuneAppのウィンドウを表示する
-    // app.setVisible(true);
   }
 
   // おみくじ一覧を作成する
