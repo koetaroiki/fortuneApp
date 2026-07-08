@@ -1,8 +1,5 @@
 package fortuneApp.test;
 
-// おみくじをランダムに選ぶためにRandomクラスをimport
-import java.util.Random;
-
 public class Main {
   public static void main(String[] args) {
 
@@ -15,7 +12,7 @@ public class Main {
     Fortune[] fortuneList = createFortunes();
 
     // fortuneListを引数としてdrawFortune()を呼び出し、選ばれたおみくじを取得する
-    Fortune resultFortune = drawFortune(fortuneList);
+    Fortune resultFortune = FortuneManager.drawFortune(fortuneList);
 
     System.out.println(resultFortune.getName());
     System.out.println(resultFortune.getMessage());
@@ -31,17 +28,5 @@ public class Main {
         new Suekichi(),
         new Kyo()
     };
-  }
-
-  // Fortune型の配列を受け取り、その中からランダムに1つ選んでFortune型として返すメソッド
-  private static Fortune drawFortune(Fortune[] fortuneList) {
-    // Randomオブジェクトを生成し、random変数に代入する
-    Random random = new Random();
-    // fortuneList配列の添字(0～5)をランダムに取得する
-    int index = random.nextInt(fortuneList.length);
-    // ランダムに選ばれたおみくじを取得する
-    Fortune selectedFortune = fortuneList[index];
-    // 選ばれたおみくじを呼び出し元へ返す
-    return selectedFortune;
   }
 }
