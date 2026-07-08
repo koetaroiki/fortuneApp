@@ -1,14 +1,15 @@
 package fortuneApp.test;
 
-// ウィンドウを作るためのJFrameクラスをimport
-import javax.swing.JButton;
 // ボタンを表示するためにJButtonクラスをimport
 import javax.swing.JFrame;
+// ウィンドウを作るためのJFrameクラスをimport
+import javax.swing.JButton;
 
+// JFrameを継承したStartAppクラス
 public class StartApp extends JFrame {
 
+  // StartAppのコンストラクタ
   public StartApp() {
-
     // ウィンドウのタイトルを設定
     setTitle("Fortune App");
     // ウィンドウのサイズを設定
