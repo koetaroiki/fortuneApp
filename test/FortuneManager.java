@@ -17,15 +17,15 @@ public class FortuneManager {
     return selectedFortune;
   }
 
-  // // おみくじ一覧を作成する
-  // private static Fortune[] createFortunes() {
-  // return new Fortune[] {
-  // new Daikichi(),
-  // new Chukichi(),
-  // new Shokichi(),
-  // new Kichi(),
-  // new Suekichi(),
-  // new Kyo()
-  // };
-  // }
+  // おみくじ一覧を作成する
+  public static Fortune[] createFortunes() {
+    return new Fortune[] {
+        new Daikichi(),
+        new Chukichi(),
+        new Shokichi(),
+        new Kichi(),
+        new Suekichi(),
+        new Kyo()
+    };
+  }
 }
