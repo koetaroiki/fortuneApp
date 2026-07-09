@@ -19,6 +19,8 @@ public class StartApp extends JFrame {
 
     // おみくじを引くボタンを作成
     JButton drawButton = new JButton("おみくじを引く");
+
+    System.out.println("ボタンが押されました");
     // ボタンをウィンドウに追加
     add(drawButton);
 
