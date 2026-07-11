@@ -6,7 +6,9 @@ import java.util.Random;
 public class FortuneManager {
 
   // Fortune型の配列を受け取り、その中からランダムに1つ選んでFortune型として返すメソッド
-  public static Fortune drawFortune(Fortune[] fortuneList) {
+  public static Fortune drawFortune() {
+    // createFortunes()を呼び出し、おみくじ一覧をFortune型の配列としてfortuneList変数に代入する
+    Fortune[] fortuneList = FortuneManager.createFortunes();
     // Randomオブジェクトを生成し、random変数に代入する
     Random random = new Random();
     // fortuneList配列の添字(0～5)をランダムに取得する
