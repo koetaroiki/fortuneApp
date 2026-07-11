@@ -3,9 +3,6 @@ package fortuneApp.test;
 // ウィンドウを作るためのJFrameクラスをimport
 import javax.swing.JFrame;
 
-// import java.util.Random;
-// import javax.swing.ImageIcon;
-
 // ボタンを表示するためにJButtonクラスをimport
 import javax.swing.JButton;
 // ボタンのクリックイベントを扱うためにActionEventクラスをimport
@@ -13,7 +10,7 @@ import java.awt.event.ActionEvent;
 // ボタンのクリックイベントを処理するためにActionListenerインターフェースをimport
 import java.awt.event.ActionListener;
 
-// JFrameを継承したStartAppクラス
+// JFrame（ウィンドウを作るクラス）を継承したStartAppクラス
 public class StartApp extends JFrame {
 
   // StartAppのコンストラクタ
@@ -28,8 +25,11 @@ public class StartApp extends JFrame {
     // おみくじを引くボタンを作成
     JButton drawButton = new JButton("おみくじを引く");
 
+    // ボタンが押されたときに実行する処理を登録する
     drawButton.addActionListener(new ActionListener() {
+      // ActionListenerのactionPerformed()メソッドをオーバーライド
       @Override
+      // ボタンが押されたときに実行される処理
       public void actionPerformed(ActionEvent e) {
         System.out.println("ボタンが押されました");
       }

@@ -3,8 +3,8 @@ package fortuneApp.test;
 // おみくじをランダムに選ぶためにRandomクラスをimport
 import java.util.Random;
 
+// おみくじに関する処理をまとめるクラス
 public class FortuneManager {
-
   // Fortune型の配列を受け取り、その中からランダムに1つ選んでFortune型として返すメソッド
   public static Fortune drawFortune() {
     // createFortunes()を呼び出し、おみくじ一覧をFortune型の配列としてfortuneList変数に代入する
