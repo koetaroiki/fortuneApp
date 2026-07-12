@@ -2,9 +2,13 @@ package fortuneApp.test;
 
 // ウィンドウを作るためのJFrameクラスをimport
 import javax.swing.JFrame;
-
+import javax.swing.BoxLayout;
 // ボタンを表示するためにJButtonクラスをimport
 import javax.swing.JButton;
+
+// 文字や画像を表示するためにJLabelクラスをimport
+import javax.swing.JLabel;
+
 // ボタンのクリックイベントを扱うためにActionEventクラスをimport
 import java.awt.event.ActionEvent;
 // ボタンのクリックイベントを処理するためにActionListenerインターフェースをimport
@@ -22,8 +26,14 @@ public class StartApp extends JFrame {
     // ウィンドウを閉じたときにプログラムを終了
     setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+    // コンポーネントを縦方向に配置する
+    setLayout(new BoxLayout(
+        getContentPane(),
+        BoxLayout.Y_AXIS));
+
     // おみくじを引くボタンを作成
     JButton drawButton = new JButton("おみくじを引く");
+    JLabel resultLabel = new JLabel("ここに結果が表示されます");
 
     // ボタンが押されたときに実行する処理を登録する
     drawButton.addActionListener(new ActionListener() {
@@ -42,6 +52,7 @@ public class StartApp extends JFrame {
 
     // ボタンをウィンドウに追加
     add(drawButton);
+    add(resultLabel);
 
     // 画面を表示
     setVisible(true);
