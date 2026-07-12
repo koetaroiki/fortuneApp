@@ -45,8 +45,13 @@ public class StartApp extends JFrame {
         // drawFortune()を呼び出し、選ばれたおみくじを取得する
         Fortune resultFortune = FortuneManager.drawFortune();
 
-        System.out.println(resultFortune.getName());
-        System.out.println(resultFortune.getMessage());
+        resultLabel.setText(
+            resultFortune.getName()
+                + " : "
+                + resultFortune.getMessage());
+
+        // System.out.println(resultFortune.getName());
+        // System.out.println(resultFortune.getMessage());
       }
     });
 
