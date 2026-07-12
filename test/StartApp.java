@@ -32,6 +32,11 @@ public class StartApp extends JFrame {
       // ボタンが押されたときに実行される処理
       public void actionPerformed(ActionEvent e) {
         System.out.println("ボタンが押されました");
+        // drawFortune()を呼び出し、選ばれたおみくじを取得する
+        Fortune resultFortune = FortuneManager.drawFortune();
+
+        System.out.println(resultFortune.getName());
+        System.out.println(resultFortune.getMessage());
       }
     });
 
