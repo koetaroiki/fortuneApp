@@ -33,9 +33,10 @@ public class StartApp extends JFrame {
 
     // おみくじを引くボタンを作成
     JButton drawButton = new JButton("おみくじを引く");
-    JLabel resultLabel = new JLabel("ここに結果が表示されます");
-    // おみくじのメッセージを表示するラベル
-    JLabel messageLabel = new JLabel("（メッセージ用の初期文字）");
+    // おみくじを表示するラベル（初期値は何も表示しない）
+    JLabel resultLabel = new JLabel();
+    // おみくじのメッセージを表示するラベル（初期値は何も表示しない）
+    JLabel messageLabel = new JLabel();
     // ボタンが押されたときに実行する処理を登録する
     drawButton.addActionListener(new ActionListener() {
       // ActionListenerのactionPerformed()メソッドをオーバーライド

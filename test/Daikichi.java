@@ -6,8 +6,8 @@ public class Daikichi extends Fortune {
     super("大吉", "友達ができた", "src/fortuneApp/asset/images/daikichi.png");
   }
 
-  @Override
-  public String getName() {
-    return "スーパー大吉";
-  }
+  // @Override
+  // public String getName() {
+  // return "スーパー大吉";
+  // }
 }
