@@ -77,7 +77,6 @@ public class StartApp extends JFrame {
         messageLabel.setText(resultFortune.getMessage());
         // メッセージを横中央にする
         messageLabel.setAlignmentX(CENTER_ALIGNMENT);
-
       }
     });
 
