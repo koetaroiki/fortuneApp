@@ -38,6 +38,8 @@ public class StartApp extends JFrame {
 
     // おみくじを引くボタンを作成
     JButton drawButton = new JButton("おみくじを引く");
+    // おみくじボタンを横中央にする
+    drawButton.setAlignmentX(CENTER_ALIGNMENT);
     // おみくじ画像を表示するラベル
     JLabel imageLabel = new JLabel();
     // おみくじを表示するラベル（初期値は何も表示しない）
@@ -64,11 +66,18 @@ public class StartApp extends JFrame {
         ImageIcon resizeIcon = new ImageIcon(resizeImage);
         // imageLabelに画像を表示する
         imageLabel.setIcon(resizeIcon);
+        // 画像を横中央にする
+        imageLabel.setAlignmentX(CENTER_ALIGNMENT);
 
         // 選ばれた運勢名を画面に表示
         resultLabel.setText(resultFortune.getName());
+        // 運勢名を横中央にする
+        resultLabel.setAlignmentX(CENTER_ALIGNMENT);
         // 選ばれたメッセージを画面に表示
         messageLabel.setText(resultFortune.getMessage());
+        // メッセージを横中央にする
+        messageLabel.setAlignmentX(CENTER_ALIGNMENT);
+
       }
     });
 
