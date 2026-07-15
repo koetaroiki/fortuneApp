@@ -2,10 +2,10 @@ package fortuneApp.test;
 
 // ウィンドウを作るためのJFrameクラスをimport
 import javax.swing.JFrame;
+// 部品を縦方向に並べるためにBoxLayoutクラスをimport
 import javax.swing.BoxLayout;
 // ボタンを表示するためにJButtonクラスをimport
 import javax.swing.JButton;
-
 // 文字や画像を表示するためにJLabelクラスをimport
 import javax.swing.JLabel;
 
@@ -13,6 +13,11 @@ import javax.swing.JLabel;
 import java.awt.event.ActionEvent;
 // ボタンのクリックイベントを処理するためにActionListenerインターフェースをimport
 import java.awt.event.ActionListener;
+
+// 画像を表示するためにImageIconクラスをimport
+import javax.swing.ImageIcon;
+// 画像サイズを変更するためにImageクラスをimport
+import java.awt.Image;
 
 // JFrame（ウィンドウを作るクラス）を継承したStartAppクラス
 public class StartApp extends JFrame {
@@ -33,6 +38,8 @@ public class StartApp extends JFrame {
 
     // おみくじを引くボタンを作成
     JButton drawButton = new JButton("おみくじを引く");
+    // おみくじ画像を表示するラベル
+    JLabel imageLabel = new JLabel();
     // おみくじを表示するラベル（初期値は何も表示しない）
     JLabel resultLabel = new JLabel();
     // おみくじのメッセージを表示するラベル（初期値は何も表示しない）
@@ -47,18 +54,30 @@ public class StartApp extends JFrame {
         // drawFortune()を呼び出し、選ばれたおみくじを取得する
         Fortune resultFortune = FortuneManager.drawFortune();
 
+        // 選ばれたおみくじ画像を読み込む
+        ImageIcon icon = new ImageIcon(resultFortune.getImagePath());
+        // ImageIconからImageを取得する
+        Image image = icon.getImage();
+        // 300×300にリサイズする
+        Image resizeImage = image.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
+        // リサイズ後のImageからImageIconを作成する
+        ImageIcon resizeIcon = new ImageIcon(resizeImage);
+        // imageLabelに画像を表示する
+        imageLabel.setIcon(resizeIcon);
+
         // 選ばれた運勢名を画面に表示
         resultLabel.setText(resultFortune.getName());
         // 選ばれたメッセージを画面に表示
         messageLabel.setText(resultFortune.getMessage());
-
       }
     });
 
     // ボタンをウィンドウに追加
-    add(drawButton);
+
+    add(imageLabel);
     add(resultLabel);
     add(messageLabel);
+    add(drawButton);
 
     // 画面を表示
     setVisible(true);
