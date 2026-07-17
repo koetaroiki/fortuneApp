@@ -46,6 +46,8 @@ public class StartApp extends JFrame {
     ImageIcon startIcon = new ImageIcon("src/fortuneApp/asset/images/daikichi.png");
     // 画像を表示する
     imageLabel.setIcon(startIcon);
+    // 画像を横中央にする
+    imageLabel.setAlignmentX(CENTER_ALIGNMENT);
     // おみくじを表示するラベル（初期値は何も表示しない）
     JLabel resultLabel = new JLabel();
     // おみくじのメッセージを表示するラベル（初期値は何も表示しない）
@@ -85,7 +87,6 @@ public class StartApp extends JFrame {
     });
 
     // ボタンをウィンドウに追加
-
     add(imageLabel);
     add(resultLabel);
     add(messageLabel);
