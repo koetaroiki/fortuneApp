@@ -60,7 +60,7 @@ public class StartApp extends JFrame {
     // 画像を横中央にする
     imageLabel.setAlignmentX(CENTER_ALIGNMENT);
     // おみくじを表示するラベル（初期値は何も表示しない）
-    JLabel resultLabel = new JLabel();
+    JLabel resultLabel = new JLabel(" ");
     // おみくじ結果の文字サイズを変更
     resultLabel.setFont(new Font("SansSerif", Font.PLAIN, 24));
 
