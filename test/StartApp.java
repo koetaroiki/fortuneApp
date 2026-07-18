@@ -25,6 +25,8 @@ import javax.swing.ImageIcon;
 // 画像サイズを変更するためにImageクラスをimport
 import java.awt.Image;
 
+// 色を設定するためにColorクラスをimport
+import java.awt.Color;
 // 文字の種類やサイズを設定するためにFontクラスをimport
 import java.awt.Font;
 
@@ -42,6 +44,9 @@ public class StartApp extends JFrame {
 
     // GridBagLayoutで自由に配置する
     setLayout(new GridBagLayout());
+    // 背景色を設定する
+    getContentPane().setBackground(
+        new Color(144, 229, 203));
     // 配置設定用のオブジェクトを作成
     GridBagConstraints gbc = new GridBagConstraints();
     // 部品同士の余白を設定
