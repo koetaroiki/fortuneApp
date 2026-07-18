@@ -25,6 +25,9 @@ import javax.swing.ImageIcon;
 // 画像サイズを変更するためにImageクラスをimport
 import java.awt.Image;
 
+// 文字の種類やサイズを設定するためにFontクラスをimport
+import java.awt.Font;
+
 // JFrame（ウィンドウを作るクラス）を継承したStartAppクラス
 public class StartApp extends JFrame {
 
@@ -58,6 +61,8 @@ public class StartApp extends JFrame {
     imageLabel.setAlignmentX(CENTER_ALIGNMENT);
     // おみくじを表示するラベル（初期値は何も表示しない）
     JLabel resultLabel = new JLabel();
+    // おみくじ結果の文字サイズを変更
+    resultLabel.setFont(new Font("SansSerif", Font.PLAIN, 24));
 
     // ボタンが押されたときに実行する処理を登録する
     drawButton.addActionListener(new ActionListener() {
