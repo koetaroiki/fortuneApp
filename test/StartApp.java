@@ -46,7 +46,7 @@ public class StartApp extends JFrame {
     setLayout(new GridBagLayout());
     // 背景色を設定する
     getContentPane().setBackground(
-        new Color(144, 229, 203));
+        new Color(115, 215, 207));
     // 配置設定用のオブジェクトを作成
     GridBagConstraints gbc = new GridBagConstraints();
     // 部品同士の余白を設定
