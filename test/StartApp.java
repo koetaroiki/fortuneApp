@@ -1,9 +1,15 @@
 package fortuneApp.test;
 
+// 部品を細かく配置するためにGridBagLayoutをimport
+import java.awt.GridBagLayout;
+// GridBagLayoutの配置設定をするためにGridBagConstraintsをimport
+import java.awt.GridBagConstraints;
+// 余白や配置位置を設定するためにInsetsをimport
+import java.awt.Insets;
+
 // ウィンドウを作るためのJFrameクラスをimport
 import javax.swing.JFrame;
-// 部品を縦方向に並べるためにBoxLayoutクラスをimport
-import javax.swing.BoxLayout;
+
 // ボタンを表示するためにJButtonクラスをimport
 import javax.swing.JButton;
 // 文字や画像を表示するためにJLabelクラスをimport
@@ -31,10 +37,14 @@ public class StartApp extends JFrame {
     // ウィンドウを閉じたときにプログラムを終了
     setDefaultCloseOperation(EXIT_ON_CLOSE);
 
-    // コンポーネントを縦方向に配置する
-    setLayout(new BoxLayout(
-        getContentPane(),
-        BoxLayout.Y_AXIS));
+    // GridBagLayoutで自由に配置する
+    setLayout(new GridBagLayout());
+    // 配置設定用のオブジェクトを作成
+    GridBagConstraints gbc = new GridBagConstraints();
+    // 部品同士の余白を設定
+    gbc.insets = new Insets(10, 10, 10, 10);
+    // 横方向中央寄せ
+    gbc.anchor = GridBagConstraints.CENTER;
 
     // おみくじを引くボタンを作成
     JButton drawButton = new JButton("おみくじを引く");
@@ -43,15 +53,12 @@ public class StartApp extends JFrame {
     // おみくじ画像を表示するラベル
     JLabel imageLabel = new JLabel();
     // 起動時に表示する初期画像を読み込む
-    ImageIcon startIcon = new ImageIcon("src/fortuneApp/asset/images/start.png");
-    // 画像を表示する
-    imageLabel.setIcon(startIcon);
+    imageLabel.setIcon(createResizeIcon("src/fortuneApp/asset/images/start.png"));
     // 画像を横中央にする
     imageLabel.setAlignmentX(CENTER_ALIGNMENT);
     // おみくじを表示するラベル（初期値は何も表示しない）
     JLabel resultLabel = new JLabel();
-    // おみくじのメッセージを表示するラベル（初期値は何も表示しない）
-    JLabel messageLabel = new JLabel();
+
     // ボタンが押されたときに実行する処理を登録する
     drawButton.addActionListener(new ActionListener() {
       // ActionListenerのactionPerformed()メソッドをオーバーライド
@@ -63,37 +70,53 @@ public class StartApp extends JFrame {
         Fortune resultFortune = FortuneManager.drawFortune();
 
         // 選ばれたおみくじ画像を読み込む
-        ImageIcon icon = new ImageIcon(resultFortune.getImagePath());
-        // ImageIconからImageを取得する
-        Image image = icon.getImage();
-        // 300×300にリサイズする
-        Image resizeImage = image.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
-        // リサイズ後のImageからImageIconを作成する
-        ImageIcon resizeIcon = new ImageIcon(resizeImage);
-        // imageLabelに画像を表示する
-        imageLabel.setIcon(resizeIcon);
+        imageLabel.setIcon(
+            createResizeIcon(resultFortune.getImagePath()));
         // 画像を横中央にする
         imageLabel.setAlignmentX(CENTER_ALIGNMENT);
 
-        // 選ばれた運勢名を画面に表示
-        resultLabel.setText(resultFortune.getName());
+        // 選ばれた運勢名とメッセージを画面に表示
+        resultLabel.setText(
+            resultFortune.getName()
+                + "："
+                + resultFortune.getMessage());
         // 運勢名を横中央にする
         resultLabel.setAlignmentX(CENTER_ALIGNMENT);
-        // 選ばれたメッセージを画面に表示
-        messageLabel.setText(resultFortune.getMessage());
-        // メッセージを横中央にする
-        messageLabel.setAlignmentX(CENTER_ALIGNMENT);
       }
     });
 
-    // ボタンをウィンドウに追加
-    add(imageLabel);
-    add(resultLabel);
-    add(messageLabel);
-    add(drawButton);
+    // 画像を1行目に配置
+    gbc.gridy = 0;
+    add(imageLabel, gbc);
+
+    // 運勢名とメッセージを2行目に配置
+    gbc.gridy = 1;
+    add(resultLabel, gbc);
+    // メッセージを3行目に配置
+    // ボタンを3行目に配置
+    gbc.gridy = 2;
+    add(drawButton, gbc);
 
     // 画面を表示
     setVisible(true);
+  }
+
+  // 画像を読み込み、300×300にリサイズして返すメソッド
+  public ImageIcon createResizeIcon(String path) {
+    // 画像を読み込む
+    ImageIcon icon = new ImageIcon(path);
+
+    // ImageIconからImageを取得
+    Image image = icon.getImage();
+
+    // 300×300にリサイズ
+    Image resizeImage = image.getScaledInstance(
+        300,
+        300,
+        Image.SCALE_SMOOTH);
+
+    // リサイズした画像をImageIconにして返す
+    return new ImageIcon(resizeImage);
   }
 
 }
