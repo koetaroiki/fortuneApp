@@ -43,7 +43,7 @@ public class StartApp extends JFrame {
     // おみくじ画像を表示するラベル
     JLabel imageLabel = new JLabel();
     // 起動時に表示する初期画像を読み込む
-    ImageIcon startIcon = new ImageIcon("src/fortuneApp/asset/images/daikichi.png");
+    ImageIcon startIcon = new ImageIcon("src/fortuneApp/asset/images/start.png");
     // 画像を表示する
     imageLabel.setIcon(startIcon);
     // 画像を横中央にする
