@@ -30,6 +30,9 @@ import java.awt.Color;
 // 文字の種類やサイズを設定するためにFontクラスをimport
 import java.awt.Font;
 
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 // JFrame（ウィンドウを作るクラス）を継承したStartAppクラス
 public class StartApp extends JFrame {
 
@@ -55,7 +58,31 @@ public class StartApp extends JFrame {
     gbc.anchor = GridBagConstraints.CENTER;
 
     // おみくじを引くボタンを作成
-    JButton drawButton = new JButton("おみくじを引く");
+    JButton drawButton = new JButton(new ImageIcon("src/fortuneApp/asset/images/omikuji.png"));
+    // 通常時のボタン画像
+    ImageIcon normalIcon = new ImageIcon("src/fortuneApp/asset/images/omikuji.png");
+
+    // 押した時のボタン画像
+    ImageIcon pressedIcon = new ImageIcon("src/fortuneApp/asset/images/omikuji2.png");
+    // ボタンの背景を透明にする
+    drawButton.setContentAreaFilled(false);
+    // 枠線を消す
+    drawButton.setBorderPainted(false);
+    // フォーカス枠を消す
+    drawButton.setFocusPainted(false);
+
+    drawButton.addMouseListener(new MouseAdapter() {
+      @Override
+      public void mousePressed(MouseEvent e) {
+        drawButton.setIcon(pressedIcon);
+      }
+
+      @Override
+      public void mouseReleased(MouseEvent e) {
+        drawButton.setIcon(normalIcon);
+      }
+    });
+
     // おみくじボタンを横中央にする
     drawButton.setAlignmentX(CENTER_ALIGNMENT);
     // おみくじ画像を表示するラベル
