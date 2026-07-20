@@ -30,7 +30,9 @@ import java.awt.Color;
 // 文字の種類やサイズを設定するためにFontクラスをimport
 import java.awt.Font;
 
+// マウス操作を扱うためのMouseAdapterクラスをimport
 import java.awt.event.MouseAdapter;
+// マウスイベント情報を扱うためのMouseEventクラスをimport
 import java.awt.event.MouseEvent;
 
 // JFrame（ウィンドウを作るクラス）を継承したStartAppクラス
@@ -71,14 +73,20 @@ public class StartApp extends JFrame {
     // フォーカス枠を消す
     drawButton.setFocusPainted(false);
 
+    // ボタンが押された・離されたことを監視する
     drawButton.addMouseListener(new MouseAdapter() {
+
+      // マウスボタンが押された瞬間に実行される
       @Override
       public void mousePressed(MouseEvent e) {
+        // 押した状態のボタン画像に切り替える
         drawButton.setIcon(pressedIcon);
       }
 
+      // マウスボタンを離した瞬間に実行される
       @Override
       public void mouseReleased(MouseEvent e) {
+        // 通常状態のボタン画像に戻す
         drawButton.setIcon(normalIcon);
       }
     });
